@@ -1,4 +1,4 @@
-// DOM Elements
+
 const searchBtn = document.querySelector('#searchBtn');
 const pokemonInput = document.querySelector('#pokemonInput');
 const displayArea = document.querySelector('#displayArea');
@@ -7,13 +7,12 @@ const hasRequiredDom = Boolean(searchBtn && pokemonInput && displayArea && loade
 
 
 
-// --- POKÉMON FETCHING LOGIC ---
 async function fetchPokemon() {
     if (!hasRequiredDom) return;
     const query = pokemonInput.value.toLowerCase().trim();
     if (!query) return;
 
-    // Clear UI and show loader
+    
     displayArea.innerHTML = '';
     loader.classList.remove('hidden');
     searchBtn.disabled = true;
@@ -40,7 +39,7 @@ async function fetchPokemon() {
 function renderPokemonCard(pokemon) {
     const { name, id, height, weight, base_experience, types, sprites } = pokemon;
 
-    // Create a card with dynamic background colors for Light/Dark mode
+    
     const card = document.createElement('div');
     card.className = "bg-slate-50 dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden fade-in border border-slate-200 dark:border-slate-700";
 
@@ -96,7 +95,7 @@ function renderError(msg) {
     `;
 }
 
-// Event Listeners
+
 if (hasRequiredDom) {
     searchBtn.addEventListener('click', fetchPokemon);
     pokemonInput.addEventListener('keydown', (e) => {
